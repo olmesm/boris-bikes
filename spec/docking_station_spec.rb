@@ -18,4 +18,17 @@ describe DockingStation do
     expect(bike).to be_working
   end
 
+  it 'docks a bike' do
+    expect(subject).to respond_to(:dock).with(1).argument
+  end
+
+  it 'stores bikes' do
+    expect(subject).to respond_to(:bikes)
+  end
+
+  it 'docks given bike' do
+    subject.dock(bike)
+    expect(subject.bikes).to eq(bike)
+  end
+
 end
