@@ -5,4 +5,10 @@ class Van
     docking_station.bikes -= @loaded_bikes
     @loaded_bikes
   end
+
+  def collect_fixed_bikes(garage)
+    @loaded_bikes = garage.garage_bikes.select(&:working?)
+    garage.garage_bikes -= @loaded_bikes
+    @loaded_bikes
+  end
 end

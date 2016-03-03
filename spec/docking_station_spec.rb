@@ -3,6 +3,7 @@ require 'docking_station'
 describe DockingStation do
   let(:good_bike) { double(:bike, working?: true) }
   let(:bad_bike) { double(:bike, working?: false) }
+  let(:van) { double(:Van, loaded_bikes: [good_bike]) }
 
   it { is_expected.to respond_to :release_bike }
   it { is_expected.to respond_to(:dock).with(1).argument }
@@ -49,22 +50,8 @@ describe DockingStation do
     end
   end
 
-#   describe "collecting broken bikes" do
-#     it { is_expected.to respond_to :release_broken_bikes}
-#
-#     context "when given a broken bike and good bike" do
-#       it "releases a broken bike" do
-#         subject.dock bad_bike
-#         subject.dock good_bike
-#         expect(subject.release_broken_bikes).to eq [bad_bike]
-#       end
-#     end
-#
-#     context "when given a good bike" do
-#       it "releases no bikes" do
-#         subject.dock good_bike
-#         expect(subject.release_broken_bikes).to eq []
-#       end
-#     end
-#   end
+  it "loads bikes from van" do
+    allow(van).to receive(:loaded_bikes=)
+    expect(subject.accept_fixed_bikes(van)).to eq [good_bike]
+  end
 end
