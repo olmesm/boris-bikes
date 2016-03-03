@@ -20,9 +20,9 @@ class DockingStation
     @bikes << bike
   end
 
-  #def release_broken_bikes
+  # def release_broken_bikes
   #  @bikes.reject {|bike| bike.working?}
-  #end
+  # end
 
   private
 

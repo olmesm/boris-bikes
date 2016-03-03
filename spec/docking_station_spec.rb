@@ -49,24 +49,22 @@ describe DockingStation do
     end
   end
 
-=begin
-  describe "collecting broken bikes" do
-    it { is_expected.to respond_to :release_broken_bikes}
-
-    context "when given a broken bike and good bike" do
-      it "releases a broken bike" do
-        subject.dock bad_bike
-        subject.dock good_bike
-        expect(subject.release_broken_bikes).to eq [bad_bike]
-      end
-    end
-
-    context "when given a good bike" do
-      it "releases no bikes" do
-        subject.dock good_bike
-        expect(subject.release_broken_bikes).to eq []
-      end
-    end
-  end
-=end
+#   describe "collecting broken bikes" do
+#     it { is_expected.to respond_to :release_broken_bikes}
+#
+#     context "when given a broken bike and good bike" do
+#       it "releases a broken bike" do
+#         subject.dock bad_bike
+#         subject.dock good_bike
+#         expect(subject.release_broken_bikes).to eq [bad_bike]
+#       end
+#     end
+#
+#     context "when given a good bike" do
+#       it "releases no bikes" do
+#         subject.dock good_bike
+#         expect(subject.release_broken_bikes).to eq []
+#       end
+#     end
+#   end
 end
