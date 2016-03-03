@@ -4,7 +4,6 @@ describe Van do
   let(:good_bike) { double(:bike, working?: true) }
   let(:bad_bike) { double(:bike, working?: false) }
   let(:station) { double(:DockingStation, bikes: [good_bike, bad_bike]) }
-  #let(:garage) { double( [] ) }
 
   it 'has the collect bikes method' do
     expect(subject).to respond_to(:collect_broken_bikes).with(1).argument
@@ -15,10 +14,10 @@ describe Van do
     expect(subject.collect_broken_bikes(station)).to eq [bad_bike]
   end
 
+=begin
   it 'has the collect bikes method' do
     expect(subject).to respond_to(:deliver_broken_bikes).with(1).argument
   end
-
   it 'should empty the van when delivering to garage' do
     garage = []
     expect(subject.deliver_broken_bikes(garage)).to eq []
@@ -31,4 +30,5 @@ describe Van do
     subject.deliver_broken_bikes(garage)
     expect(garage).to eq [bad_bike]
   end
+=end
 end
